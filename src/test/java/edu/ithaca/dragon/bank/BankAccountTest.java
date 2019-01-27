@@ -21,16 +21,19 @@ class BankAccountTest {
         assertEquals(100, bankAccount.getBalance());
     }
 
+
     @Test
     void isEmailValidTest(){
-        assertTrue(BankAccount.isEmailValid( "a@b.com"));
-        assertFalse( BankAccount.isEmailValid(""));
+
+        assertFalse(BankAccount.isEmailValid("a@yahoo.you"));
+        assertFalse(BankAccount.isEmailValid("@gmail.com"));
+        assertFalse(BankAccount.isEmailValid("lame<@gmail.com"));
+        assertFalse(BankAccount.isEmailValid("lame>@gmail.edu"));
     }
 
     @Test
     void constructorTest() {
         BankAccount bankAccount = new BankAccount("a@b.com", 200);
-
         assertEquals("a@b.com", bankAccount.getEmail());
         assertEquals(200, bankAccount.getBalance());
         //check for exception thrown correctly

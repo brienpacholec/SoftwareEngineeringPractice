@@ -34,13 +34,36 @@ public class BankAccount {
 
     }
 
-
+    /**
+     * isEmailValid checks to determine if a desired input is valid
+     * It may have any character excluding '~ ` < >'
+     * It cannot start with @
+     * It must then followed by an @ and then a .edu, .com, .org, or .gov
+     * Emails cannot be over 32 characters in length
+     */
     public static boolean isEmailValid(String email){
-        if (email.indexOf('@') == -1){
+
+        if (email.length() > 32 || email.length()==-1){
             return false;
         }
+
         else {
+
+            if (email.indexOf('@') == -1 || email.indexOf('@') == 0) {
+                return false;
+            }
+            if (email.indexOf('~') != -1 || email.indexOf('`') != -1 || email.indexOf('<') != -1 || email.indexOf('>') != -1) {
+                return false;
+            }
+            if (!email.endsWith(".edu") || !email.endsWith(".com") || !email.endsWith(".org") || !email.endsWith(".gov")) {
+                return false;
+            }
+
             return true;
         }
+
+
+
+
     }
 }
