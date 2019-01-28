@@ -50,6 +50,7 @@ class BankAccountTest {
         assertFalse(BankAccount.isEmailValid("lame<@gmail.com"));
         assertFalse(BankAccount.isEmailValid("lame>@gmail.edu"));
         assertFalse(BankAccount.isEmailValid("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@gmail.com"));
+        assertFalse(BankAccount.isEmailValid("a@@gmail.com"));
     }
 
     @Test
